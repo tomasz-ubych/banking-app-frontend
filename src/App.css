@@ -40,3 +40,7 @@ h1 {
 p {
   margin-bottom: 15px;
 }
+
+.answerBottomYesNo input[type="radio"]{
+  margin-left:20px;
+}
