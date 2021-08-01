@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+}  from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
+require('dotenv').config()
 ReactDOM.render((
-  <BrowserRouter>
-    <App /> {/* The various pages will be displayed by the `Main` component. */}
-  </BrowserRouter>
+  <Router>
+    <App />
+  </Router>
   ), document.getElementById('root')
 );
 
