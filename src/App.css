@@ -44,3 +44,8 @@ p {
 .answerBottomYesNo input[type="radio"]{
   margin-left:20px;
 }
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
