@@ -7,21 +7,13 @@ import axios from 'axios';
 export default class CustomerDashboard extends Component {
     constructor(props) {
         super(props)
-        this.getCustomerAccounts = this.getCustomerAccounts.bind(this);
-        this.getCustomerAddress = this.getCustomerAddress.bind(this);
         this.getCustomer = this.getCustomer.bind(this);
         this.state = {
-            customers: [],
-            addresses: [],
-            accounts: []
+            customers: []
         };
     }
 
     getCustomer = (search) =>  {
-        this.setState({
-            accounts: [],
-            addresses: []
-        })
         if (search.searchParameter === "ID") {
             axios.get(`${process.env.REACT_APP_API_URL}/customers/id/${search.searchId}`)
                 .then(response => this.setState({
@@ -36,25 +28,6 @@ export default class CustomerDashboard extends Component {
         }
     }
 
-    getCustomerAddress(clickedId) {
-        axios.get(`${process.env.REACT_APP_API_URL}/customer/${clickedId}/address/`)
-            .then(response => this.setState({
-                addresses: response.data.content
-            }))
-        console.log(this.state.addresses)
-    };
-
-    getCustomerAccounts(clickedId) {
-        axios.get(`${process.env.REACT_APP_API_URL}/customer/${clickedId.clickedId}/accounts/`)
-            .then(response => this.setState({
-                accounts: response.data.content
-            }))
-        console.log(this.state.accounts)
-    };
-
-
-
-
     render() {
         return (
             <div className="App">
@@ -65,8 +38,6 @@ export default class CustomerDashboard extends Component {
                     />
                     <CustomerList 
                     customers={this.state.customers}
-                    getCustomerAccounts={this.getCustomerAccounts}
-                    getCustomerAddress={this.getCustomerAddress}
                     />
                 </React.Fragment>
             </div>
