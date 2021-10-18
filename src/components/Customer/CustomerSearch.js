@@ -17,7 +17,6 @@ export default class CustomerSearch extends Component {
     }
 
     handleSearch = () => {
-        console.log(this.state.searchParameter + ' dupa ' + this.state.searchId + ' - dupa2')
         this.props.getCustomer({
             searchId: this.state.searchId,
             searchParameter: this.state.searchParameter

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import { Header, Grid } from 'semantic-ui-react'
-import CustomerDashboard from './components/CustomerDashboard';
+import CustomerDashboard from './components/Customer/CustomerDashboard';
 
 
 class App extends Component {

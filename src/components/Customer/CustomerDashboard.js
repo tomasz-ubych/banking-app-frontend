@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Grid } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 import CustomerSearch from './CustomerSearch';
 import CustomerList from './CustomerList';
 import axios from 'axios';

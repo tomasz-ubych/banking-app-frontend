@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Grid, Table } from 'semantic-ui-react'
+import {Table } from 'semantic-ui-react'
 import Customer from './Customer';
 
 export default class CustomerList extends Component {
@@ -26,9 +26,7 @@ export default class CustomerList extends Component {
                              <Table.HeaderCell>Rachunki</Table.HeaderCell>
                          </Table.Row>
                      </Table.Header>
-                     <Table.Body>
                          {customerTableData}
-                     </Table.Body>
                  </Table>
          }
 
