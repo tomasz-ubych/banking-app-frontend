@@ -15,13 +15,13 @@ export default class CustomerDashboard extends Component {
 
     getCustomer = (search) =>  {
         if (search.searchParameter === "ID") {
-            axios.get(`${process.env.REACT_APP_API_URL}/customers/id/${search.searchId}`)
+            axios.get(`${process.env.REACT_APP_API_URL}/customer/${search.searchId}`)
                 .then(response => this.setState({
                     customers: [].concat(response.data)
                 }))
         }
         else {
-            axios.get(`${process.env.REACT_APP_API_URL}/customers/pesel/${search.searchId}`)
+            axios.get(`${process.env.REACT_APP_API_URL}/customer?pesel=${search.searchId}`)
                 .then(response => this.setState({
                     customers: response.data
                 }))

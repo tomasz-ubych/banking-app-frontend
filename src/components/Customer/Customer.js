@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, TableCell, TableRow } from 'semantic-ui-react'
-import CustomerAccounts from '../Account/CustomerAccounts';
+import CustomerAccount from '../Account/CustomerAccount';
 import CustomerAddressList from '../Address/CustomerAddressList';
 import axios from 'axios';
 import '../../App.css'
@@ -20,7 +20,7 @@ export default class Customer extends Component {
 
     handleGetCustomerAddress = (event) => {
         const id = event.currentTarget.getAttribute("data-rowid");
-        axios.get(`${process.env.REACT_APP_API_URL}/customer/${id}/address/`)
+        axios.get(`${process.env.REACT_APP_API_URL}/address?customerId=${id}`)
             .then(response => this.setState({
                 addresses: response.data.content
             }))
@@ -31,7 +31,7 @@ export default class Customer extends Component {
 
     handleGetCustomerAccounts = (event) => {
         const id = event.currentTarget.getAttribute("data-rowid");
-        axios.get(`${process.env.REACT_APP_API_URL}/customer/${id}/accounts/`)
+        axios.get(`${process.env.REACT_APP_API_URL}/account?customerId=${id}`)
             .then(response => this.setState({
                 accounts: response.data.content
             }))
@@ -52,14 +52,13 @@ export default class Customer extends Component {
                         <Table.Cell><button onClick={this.handleGetCustomerAccounts} data-rowid={this.props.id}> Pobierz rachunki klienta </button></Table.Cell>
                     </Table.Row>
                 </Table.Body>
-                <p>test</p>
                 <div className="subtable">
                     {this.state.areAddressesOpen ?
                         <CustomerAddressList
                             addresses={this.state.addresses}
                         /> : null}
                     {this.state.areAccountsOpen ?
-                        <CustomerAccounts
+                        <CustomerAccount
                             accounts={this.state.accounts}
                         /> :
                         null}

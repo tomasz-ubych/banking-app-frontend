@@ -1,4 +1,4 @@
-function alertValidIBAN(iban) {
+export function alertValidIBAN(iban) {
     alert(isValidIBANNumber(iban));
 }
 
@@ -7,7 +7,7 @@ function alertValidIBAN(iban) {
  * Returns FALSE if the IBAN's length is not as should be (for CY the IBAN Should be 28 chars long starting with CY )
  * Returns any other number (checksum) when the IBAN is invalid (check digits do not match)
  */
-function isValidIBANNumber(input) {
+export function isValidIBANNumber(input) {
     var CODE_LENGTHS = {
         AD: 24, AE: 23, AT: 20, AZ: 28, BA: 20, BE: 16, BG: 22, BH: 22, BR: 29,
         CH: 21, CR: 21, CY: 28, CZ: 24, DE: 22, DK: 18, DO: 28, EE: 20, ES: 24,

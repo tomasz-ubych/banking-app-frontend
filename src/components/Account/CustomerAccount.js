@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react'
 import EditableTransaction from '../Transaction/EditableTransaction.js';
 
-export default class CustomerAccounts extends Component {
+export default class CustomerAccount extends Component {
     constructor(props) {
         super(props);
         this.state = {
