@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Table, TableCell, TableRow } from 'semantic-ui-react'
-import CustomerAccount from '../Account/CustomerAccount';
+import CustomerAccountList from '../Account/CustomerAccountList.js';
 import CustomerAddressList from '../Address/CustomerAddressList';
 import axios from 'axios';
 import '../../App.css'
-
-
 
 export default class Customer extends Component {
     constructor(props) {
@@ -43,26 +40,22 @@ export default class Customer extends Component {
     render() {
         return (
             <React.Fragment>
-                <Table.Body>
-                    <Table.Row key={this.props.id} >
-                        <Table.Cell>{this.props.firstName}</Table.Cell>
-                        <Table.Cell>{this.props.lastName}</Table.Cell>
-                        <Table.Cell>{this.props.pesel}</Table.Cell>
-                        <Table.Cell><button onClick={this.handleGetCustomerAddress} data-rowid={this.props.id}> Pobierz adres klienta </button></Table.Cell>
-                        <Table.Cell><button onClick={this.handleGetCustomerAccounts} data-rowid={this.props.id}> Pobierz rachunki klienta </button></Table.Cell>
-                    </Table.Row>
-                </Table.Body>
-                <div className="subtable">
+                    <tr key={this.props.id} >
+                        <td>{this.props.firstName}</td>
+                        <td>{this.props.lastName}</td>
+                        <td>{this.props.pesel}</td>
+                        <td><button onClick={this.handleGetCustomerAddress} data-rowid={this.props.id}> Pobierz adres klienta </button></td>
+                        <td><button onClick={this.handleGetCustomerAccounts} data-rowid={this.props.id}> Pobierz rachunki klienta </button></td>
+                    </tr>
                     {this.state.areAddressesOpen ?
                         <CustomerAddressList
                             addresses={this.state.addresses}
                         /> : null}
                     {this.state.areAccountsOpen ?
-                        <CustomerAccount
+                        <CustomerAccountList
                             accounts={this.state.accounts}
                         /> :
                         null}
-                </div>
             </React.Fragment>
 
         );

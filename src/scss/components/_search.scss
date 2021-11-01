@@ -1,0 +1,18 @@
+.search{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__radiobuttons{
+        padding-top: 1rem;
+    }
+    
+    &__input{
+        padding-top: 0.5rem;
+    }
+
+    &__button{
+        margin-top: 0.75rem;
+    }
+}

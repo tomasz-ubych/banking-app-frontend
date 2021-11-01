@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react'
 import CustomerSearch from './CustomerSearch';
 import CustomerList from './CustomerList';
+import '../../scss/main.scss';
 import axios from 'axios';
 
 export default class CustomerDashboard extends Component {
@@ -30,8 +30,8 @@ export default class CustomerDashboard extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Header as='h2' dividing>Po czym chcesz wyszukać klienta?</Header>
+            <div>
+                <div className="sub-header">Po czym chcesz wyszukać klienta?</div>
                 <React.Fragment>
                     <CustomerSearch 
                      getCustomer={this.getCustomer}

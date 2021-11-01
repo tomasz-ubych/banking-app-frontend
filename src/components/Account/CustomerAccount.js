@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react'
-import EditableTransaction from '../Transaction/EditableTransaction.js';
+import EditableTransaction from '../Transaction/EditableTransaction';
 
 export default class CustomerAccount extends Component {
     constructor(props) {
@@ -10,44 +9,36 @@ export default class CustomerAccount extends Component {
             clickedId: 0
         }
     }
+    
+    cancelNewEditableTransaction = () => {
+        this.setState({
+            isEditableFormOpen: false
+        })
+    };
+
     handleFormOpen = (event) => {
         this.setState({ isEditableFormOpen: true,
             clickedId: event.currentTarget.getAttribute('data-rowid')
         });
     }
-
     render() {
         const self = this;
-        if (this.props.accounts[0] !== null) {
-            var accountsTableData = this.props.accounts.map(function (account) {
-                return <Table.Row key={account.id} >
-                    <Table.Cell>{account.iban}</Table.Cell>
-                    <Table.Cell>{account.currency}</Table.Cell>
-                    <Table.Cell> <button className='ui basic button icon' onClick={self.handleFormOpen}  data-rowid={account.iban}>
+        return (
+            <React.Fragment>
+                <tr key={this.props.id} >
+                    <td>{this.props.iban}</td>
+                    <td>{this.props.currency}</td>
+                    <td> <button className='ui basic button icon' onClick={self.handleFormOpen}  data-rowid={this.props.id }>
                         <i className='plus icon' />
-                    </button></Table.Cell>
-                </Table.Row>
-            });
-            var accountsTable =
-                <React.Fragment>
-                    <Table celled>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>IBAN</Table.HeaderCell>
-                                <Table.HeaderCell>Waluta</Table.HeaderCell>
-                                <Table.HeaderCell>Nowa transakcja</Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
-                        <Table.Body>
-                            {accountsTableData}
-                        </Table.Body>
-                    </Table>
-                    {this.state.isEditableFormOpen ?
+                    </button>
+                    </td>
+                </tr>
+                {this.state.isEditableFormOpen ?
                     <EditableTransaction
                     accountIban={this.state.clickedId}
+                    cancelNewEditableTransaction = {this.cancelNewEditableTransaction}
                     /> : null}
-                </React.Fragment>
-        }
-        return accountsTable;
+            </React.Fragment>
+        );
     }
 }

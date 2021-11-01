@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
 import {isValidIBANNumber} from '../Utility/Validator';
 
 export default class EditableTransaction extends Component {
@@ -63,6 +62,7 @@ export default class EditableTransaction extends Component {
             <div className='ui two bottom attached buttons'>
                 <button
                     className='ui basic blue button'
+                    onClick={this.props.cancelNewEditableTransaction}
                 >
                     Anuluj
                 </button>

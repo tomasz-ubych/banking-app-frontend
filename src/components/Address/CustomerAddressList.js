@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react'
 import CustomerAddress from './CustomerAddress';
 
 export default class CustomerAddressList extends Component {
@@ -18,21 +17,17 @@ export default class CustomerAddressList extends Component {
             });
         if (this.props.addresses[0] !== null && this.props.addresses[0] !== undefined) {
             var addressTable =
-                <Table>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Country</Table.HeaderCell>
-                            <Table.HeaderCell>Street</Table.HeaderCell>
-                            <Table.HeaderCell>City</Table.HeaderCell>
-                            <Table.HeaderCell>Flat number</Table.HeaderCell>
-                            <Table.HeaderCell>Apartment number</Table.HeaderCell>
-                            <Table.HeaderCell>Province</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
+                <table className="sub-table">
+                        <tr>
+                            <th>Country</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>Flat number</th>
+                            <th>Apartment number</th>
+                            <th>Province</th>
+                        </tr>
                         {addressTableData}
-                    </Table.Body>
-                </Table>
+                </table>
         }
 
         return (

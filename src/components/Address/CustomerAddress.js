@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import {Table } from 'semantic-ui-react'
 
 export default class CustomerAddress extends Component {
     render() {
         return (
             <React.Fragment>
-                <Table.Row key={this.props.id} >
-                    <Table.Cell>{this.props.country}</Table.Cell>
-                    <Table.Cell>{this.props.street}</Table.Cell>
-                    <Table.Cell>{this.props.city}</Table.Cell>
-                    <Table.Cell>{this.props.flatNumber}</Table.Cell>
-                    <Table.Cell>{this.props.apartmentNumber}</Table.Cell>
-                    <Table.Cell>{this.props.province}</Table.Cell>
-                </Table.Row>
+                <tr key={this.props.id} >
+                    <td>{this.props.country}</td>
+                    <td>{this.props.street}</td>
+                    <td>{this.props.city}</td>
+                    <td>{this.props.flatNumber}</td>
+                    <td>{this.props.apartmentNumber}</td>
+                    <td>{this.props.province}</td>
+                </tr>
             </React.Fragment>
         );
     }

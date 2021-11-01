@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../scss/main.scss';
 
 export default class CustomerSearch extends Component {
     constructor(props) {
@@ -25,18 +26,18 @@ export default class CustomerSearch extends Component {
 
     render() {
         return (
-            <div className="App">
-                    <div onChange={this.onInputchange}>
-                        <span class="answerBottomYesNo" ><input type="radio" name="searchParameter" value="ID" defaultChecked /> Id</span>
-                        <span class="answerBottomYesNo" > <input type="radio" name="searchParameter" value="PESEL" /> Pesel</span>
+            <div className="search">
+                    <div className="search__radiobuttons" onChange={this.onInputchange}>
+                        <span className="answerBottomYesNo" ><input type="radio" name="searchParameter" value="ID" defaultChecked /> Id</span>
+                        <span className="answerBottomYesNo" > <input type="radio" name="searchParameter" value="PESEL" /> Pesel</span>
                     </div>
-                    <div>
+                    <div className="search__input">
                         <input name="searchId"
                             type="text"
                             value={this.state.searchId}
                             onChange={this.onInputchange} />
                     </div>
-                    <button onClick={this.handleSearch}> Pobierz dane klienta </button>
+                    <button className="search__button" onClick={this.handleSearch}> Pobierz dane klienta </button>
             </div>
         );
     }
