@@ -11,26 +11,29 @@ export default class CustomerList extends Component {
                     firstName={customer.firstName}
                     lastName={customer.lastName}
                     pesel={customer.pesel}
+                    clearNotChosenCustomers={this.props.clearNotChosenCustomers}
                 />
             });
         if (this.props.customers[0] !== null && this.props.customers[0] !== undefined) {
             var customerTable =
-                <table>
+            <div className="test">
+                <table className="fixed">
                     <tr>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>PESEL</th>
-                            <th>Adresy</th>
-                            <th>Rachunki</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>PESEL</th>
+                        <th>Adresy</th>
+                        <th>Rachunki</th>
                     </tr>
                     {customerTableData}
                 </table>
+                </div>  
         }
 
         return (
-            <div>
+            <React.Fragment>
                 {customerTableData !== null ? customerTable : <div>dupa</div>}
-            </div>
+            </React.Fragment>
         );
     }
 }

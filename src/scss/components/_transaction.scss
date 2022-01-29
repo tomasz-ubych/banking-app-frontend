@@ -1,0 +1,15 @@
+.transaction {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width:70vh;
+    align-items: center;
+    padding-top: 1rem;
+
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 1rem;
+    }
+}

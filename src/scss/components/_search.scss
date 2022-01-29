@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
 
-    &__radiobuttons{
+    &__radiobutton-section{
         padding-top: 1rem;
     }
     
@@ -15,4 +15,12 @@
     &__button{
         margin-top: 0.75rem;
     }
+    &__radiobutton{
+        margin-left:0.75rem;
+    }
 }
+  
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+  }

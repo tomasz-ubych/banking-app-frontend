@@ -19,7 +19,6 @@
     border-radius: 25px;
     font-family: $font;
     background: rgba(153, 157, 158, 0.05);
-    
 }
 
 .header {
@@ -32,7 +31,14 @@
     padding: 1rem;
 }
 
-.sub-table {
-    border-collapse: collapse;
-    width: 100%;
+table.fixed {
+    table-layout:fixed; 
+    width:70vh;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+}
+table.fixed td {
+    overflow:hidden;
+    padding: 12px 15px;
+
 }

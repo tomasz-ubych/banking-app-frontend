@@ -24,6 +24,7 @@ export default class Customer extends Component {
         this.setState({
             areAddressesOpen: true
         })
+        this.props.clearNotChosenCustomers(id);
     };
 
     handleGetCustomerAccounts = (event) => {
@@ -35,6 +36,7 @@ export default class Customer extends Component {
         this.setState({
             areAccountsOpen: true
         })
+        this.props.clearNotChosenCustomers(id);
     };
 
     render() {

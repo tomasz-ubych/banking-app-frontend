@@ -11,13 +11,14 @@ export default class CustomerAddressList extends Component {
                     city={address.city}
                     street={address.street}
                     country={address.country}
-                    flatNumber={address.apartmentNumber}
+                    flatNumber={address.flatNumber}
+                    apartmentNumber={address.apartmentNumber}
                     province = {address.province}
                 />
             });
         if (this.props.addresses[0] !== null && this.props.addresses[0] !== undefined) {
             var addressTable =
-                <table className="sub-table">
+                <table className="fixed" >
                         <tr>
                             <th>Country</th>
                             <th>Street</th>
