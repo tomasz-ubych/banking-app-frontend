@@ -53,25 +53,15 @@ export default class EditableTransaction extends Component {
 
     confirmTransaction = () => {
         console.log("HERERE");
-        var transaction = {
-            amount: this.state.transactionAmount,
-            date: Date.now(),
-            transactionName: this.state.transactionName,
-            initialAmount: 10,
-            finalAmount: 20,
-            isLocal: 0,
-            transactionType: "SEPA",
-            receiverAccount: {
-                iban: this.state.receiverIban
-            }
-        }
-        console.log("account iban: " + this.props.accountIban);
+        console.log(this.props.clickedAccount.currency);
         axios.request({
             method: 'POST',
             url: `${process.env.REACT_APP_API_URL}/transaction`,
             params: {
-                transaction: this.transaction,
-                senderAccountIban: this.props.accountIban
+                amount: this.state.transactionAmount,
+                senderAccountIban: this.props.clickedAccount.iban,
+                receiverAccountIban: this.state.receiverIban,
+                currency: this.props.clickedAccount.currency
             }
         })
     }
@@ -80,7 +70,7 @@ export default class EditableTransaction extends Component {
         const { errors } = this.state;
         return (
             <div className='transaction'>
-                <label>Transfer from account {this.props.clickedId} (18213 PLN)</label>
+                <label>Transfer from account {this.props.clickedAccount.iban} (18213 PLN)</label>
                 <label>Recipient account number </label>
                 <input
                     name='receiverIban'

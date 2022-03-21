@@ -7,7 +7,7 @@ export default class CustomerAccountList extends Component {
         super(props);
         this.state = {
             isEditableFormOpen: false,
-            clickedId: 0
+            clickedAccount: ""
         }
     }
 
@@ -18,8 +18,10 @@ export default class CustomerAccountList extends Component {
     };
 
     handleFormOpen = (isEditableFormOpen, clickedId) => {
+        var clickedAccount = (this.props.accounts.filter(account => account.id == clickedId))[0];
+        console.log(clickedAccount);
         this.setState({
-            clickedId: clickedId,
+            clickedAccount: clickedAccount,
             isEditableFormOpen: isEditableFormOpen
         })
     }
@@ -45,7 +47,7 @@ export default class CustomerAccountList extends Component {
                     {accountTableData}
                     {this.state.isEditableFormOpen ?
                         <EditableTransaction
-                            clickedId={this.state.clickedId}
+                            clickedAccount={this.state.clickedAccount}
                             cancelNewEditableTransaction={this.cancelNewEditableTransaction}
                         /> : null}
                 </table>

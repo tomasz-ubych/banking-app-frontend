@@ -20,7 +20,7 @@ export default class CustomerAccount extends Component {
                 <tr key={this.props.id} >
                     <td>{this.props.iban}</td>
                     <td>{this.props.currency}</td>
-                    <td> <button onClick={self.handleFormOpen}  data-rowid={this.props.iban}> Dodaj
+                    <td> <button onClick={self.handleFormOpen}  data-rowid={this.props.id}> Dodaj
                     </button>
                     </td>
                 </tr>
